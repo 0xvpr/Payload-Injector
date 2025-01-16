@@ -3,7 +3,7 @@
 #include "common/logger.h"
 #include "common/util.h"
 
-enum status_t load_library_a(const struct parsed_args_t* args)
+enum status_t load_library_a(const parsed_args_t* args)
 {
     HANDLE process_handle = OpenProcess(PROCESS_VM_WRITE | PROCESS_VM_OPERATION, FALSE, args->process_id);
 
@@ -63,7 +63,7 @@ enum status_t load_library_a(const struct parsed_args_t* args)
     return 0;
 }
 
-enum status_t load_library_w(const struct parsed_args_t* args)
+enum status_t load_library_w(const parsed_args_t* args)
 {
     HANDLE process_handle = OpenProcess(PROCESS_VM_WRITE | PROCESS_VM_OPERATION, FALSE, args->process_id);
 

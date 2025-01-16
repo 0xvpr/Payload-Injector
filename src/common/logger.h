@@ -8,8 +8,8 @@
           injector->logger && injector->logger(injector, msg, shiftwidth)
 #endif // LOG_MSG
 
-int32_t log_basic(const struct parsed_args_t* args, const char * event, uint32_t shiftwidth);
-int32_t log_advanced(const struct parsed_args_t* args, const char* event, uint32_t shiftwidth);
+int32_t log_basic(const parsed_args_t* args, const char * event, uint32_t shiftwidth);
+int32_t log_advanced(const parsed_args_t* args, const char* event, uint32_t shiftwidth);
 
 static const logger_t loggers[3] = {
     NULL,

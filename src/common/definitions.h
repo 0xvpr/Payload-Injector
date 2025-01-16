@@ -40,7 +40,7 @@ enum errcode_t
     err_parse_error
 };
 
-typedef struct parsed_args_t
+typedef struct _parsed_args_t
 {
     DWORD                       process_id;
     int32_t                     verbosity;
@@ -50,11 +50,11 @@ typedef struct parsed_args_t
     char                        process_name[MAX_PATH];
     char                        payload_path[MAX_PATH];
     char                        log_path[MAX_PATH];
-    int32_t                     (* logger)(const struct parsed_args_t* args, const char* event, uint32_t shiftwidth);
-    enum status_t               (* operation)(const struct parsed_args_t* args);
-} parsed_args;
+    int32_t                     (* logger)(const struct _parsed_args_t* args, const char* event, uint32_t shiftwidth);
+    enum status_t               (* operation)(const struct _parsed_args_t* args);
+} parsed_args_t;
 
-typedef int (* logger_t)(const struct parsed_args_t*, const char*, uint32_t);
+typedef int (* logger_t)(const parsed_args_t*, const char*, uint32_t);
 typedef void* exec_mem_t;
 
 #endif // DEFINITIONS_HEADER

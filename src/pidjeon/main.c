@@ -3,12 +3,13 @@
  * Created:     September 14th, 2021
  *
  * Updated by:  VPR
- * Updated:     May 17th, 2024
+ * Updated:     January 15th, 2025
  *
  * Description: Payload injection tool.
 **/
 
 #include   "pidjeon/parser.h"
+
 #include   "common/logger.h"
 #include   "common/util.h"
 
@@ -85,27 +86,32 @@ int __handle_error(enum errcode_t err)
 }
 
 static inline
-void init_parsed_args(struct parsed_args_t* args, const char* argv0)
+void init_parsed_args(parsed_args_t* args, const char* argv0)
 {
+    if (!args || !argv0)
+    {
+        __handle_error(err_parse_error);
+    }
+
     args->process_id = 0;
     args->verbosity = 0;
     args->stealth = 0;
     args->delay = 0;
 
-    strcpy(args->program_name, argv0);
+    memcpy(args->program_name, argv0, sizeof(args->program_name)-1);
+    memcpy(args->log_path, "%%APPDATA%%/log.txt", sizeof("%%APPDATA%%/log.txt"));
     memset(args->process_name, 0, sizeof(args->process_name));
     memset(args->payload_path, 0, sizeof(args->payload_path));
-    strcpy(args->log_path, "%%APPDATA%%/log.txt");
 
     args->logger = NULL;
-    args->operation = load_library_a;
+    args->operation = (enum status_t (*)(const struct _parsed_args_t* args))load_library_a;
 }
 
 
 int main(int argc, char** argv)
 {
-    struct parsed_args_t args = { 0 };
-    init_parsed_args(&args, *argv);
+    parsed_args_t args = { 0 };
+    init_parsed_args(&args, argv[0]);
 
     enum errcode_t err = parse_arguments(argc, argv, &args);
     err && __handle_error(err);

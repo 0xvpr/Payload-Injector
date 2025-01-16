@@ -13,7 +13,7 @@
 
 typedef BOOL (WINAPI * IsWow64Process2_t)(HANDLE, USHORT*, USHORT*);
 
-void usage(const char* error_message, struct parsed_args_t* args)
+void usage(const char* error_message, parsed_args_t* args)
 {
     fprintf(stderr,
         "Error message: %s.\n"
@@ -158,7 +158,7 @@ int file_exists(const char *filename)
     return 1;
 }
 
-enum errcode_t validate_arguments(struct parsed_args_t* args)
+enum errcode_t validate_arguments(parsed_args_t* args)
 {
     if (!(*args->program_name))
     {

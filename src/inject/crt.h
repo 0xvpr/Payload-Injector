@@ -3,6 +3,6 @@
 
 #include "common/definitions.h"
 
-enum status_t create_remote_thread(const struct parsed_args_t*);
+enum status_t create_remote_thread(const parsed_args_t*);
 
 #endif // CREATE_REMOTE_THREAD_HEADER

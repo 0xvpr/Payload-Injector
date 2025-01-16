@@ -26,7 +26,7 @@ char* extract_bytes_from_file(const char* f, size_t* size) {
     return bytesRead;
 }
 
-enum status_t create_remote_thread(const struct parsed_args_t* args)
+enum status_t create_remote_thread(const parsed_args_t* args)
 {
     size_t       size = 0;
 

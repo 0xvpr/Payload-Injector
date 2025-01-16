@@ -124,7 +124,7 @@ uint32_t select_process(DWORD* processes, const size_t size)
     return processes[selected_option];
 }
 
-enum errcode_t parse_arguments(int argc, char** argv, struct parsed_args_t* args)
+enum errcode_t parse_arguments(int argc, char** argv, parsed_args_t* args)
 {
     if (argc < 3) {
         usage("Not enough arguments provided", args);

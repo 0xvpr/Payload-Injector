@@ -16,6 +16,6 @@ typedef struct _LoaderData {
 	pGetProcAddress fnGetProcAddress;
 } LoaderData;
 
-enum status_t manual_map(const struct parsed_args_t*);
+enum status_t manual_map(const parsed_args_t*);
 
 #endif // MANUAL_MAP_HEADER

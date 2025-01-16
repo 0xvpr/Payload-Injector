@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <time.h>
 
-int32_t log_basic(const struct parsed_args_t* args, const char* event, uint32_t shiftwidth)
+int32_t log_basic(const parsed_args_t* args, const char* event, uint32_t shiftwidth)
 {
     (void)args;
     int bytes_written = 0;
@@ -25,7 +25,7 @@ int32_t log_basic(const struct parsed_args_t* args, const char* event, uint32_t 
     return bytes_written;
 }
 
-int32_t log_advanced(const struct parsed_args_t* args, const char* event, uint32_t shiftwidth)
+int32_t log_advanced(const parsed_args_t* args, const char* event, uint32_t shiftwidth)
 {
     int bytes_written = 0;
 

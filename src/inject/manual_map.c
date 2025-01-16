@@ -3,7 +3,7 @@
 #include "common/logger.h"
 #include "common/util.h"
 
-static
+static inline
 DWORD library_loader(LPVOID memory)
 {
     LoaderData* LoaderParams = (LoaderData *)memory;
@@ -94,7 +94,7 @@ int32_t __stdcall stub()
     return 0;
 }
 
-enum status_t manual_map(const struct parsed_args_t* args)
+enum status_t manual_map(const parsed_args_t* args)
 {
     LoaderData LoaderParams;
     TCHAR abs_payload_path[MAX_PATH];
